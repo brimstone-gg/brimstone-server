@@ -5,14 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brimstone-gg/brimstone-server.git"
   },
-  "author": "Jan Henning",
-  "license": "MIT",
+  "author": "The Brimstone.gg team",
   "bugs": {
     "url": "https://github.com/brimstone-gg/brimstone-server/issues"
   },
@@ -28,7 +28,9 @@
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^26.0.1",
     "nodemon": "^2.0.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
   }
 }
