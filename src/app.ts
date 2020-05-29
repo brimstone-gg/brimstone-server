@@ -1,8 +1,8 @@
-require('dotenv').config()
-const express = require('express')
-const cors = require('cors')
-const helmet = require('helmet')
-const morgan = require('morgan')
+import 'dotenv/config'
+import express from 'express'
+import cors from 'cors'
+import helmet from 'helmet'
+import morgan from 'morgan'
 
 const app = express()
 
@@ -30,4 +30,4 @@ app.get('*', (req, res) => {
   })
 })
 
-module.exports = app
+export default app

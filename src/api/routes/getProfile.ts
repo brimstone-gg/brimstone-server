@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
 
-const userController = require('../controllers/getProfile')
+import * as userController from '../controllers/getProfile'
 
 router.get('/:username/:discriminator', userController.getProfile)
 
