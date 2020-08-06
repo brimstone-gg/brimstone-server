@@ -12,5 +12,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+        env:
+          PORT: ${{ secrets.PORT }}
+          RIOT_DEV_API_KEY: ${{ secrets.RIOT_DEV_API_KEY }}
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
       - run: npm ci
       - run: npm test
