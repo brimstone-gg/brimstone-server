@@ -13,7 +13,6 @@ jobs:
         with:
           node-version: 12
         env:
-          NODE_ENV: production
           PORT: ${{ secrets.PORT }}
           RIOT_DEV_API_KEY: ${{ secrets.RIOT_DEV_API_KEY }}
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
