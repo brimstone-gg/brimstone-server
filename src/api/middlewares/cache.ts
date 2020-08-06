@@ -2,10 +2,14 @@ import { Request, Response, NextFunction } from 'express'
 import * as redis from 'redis'
 
 const REDIS_PORT = parseInt(process.env.REDIS_PORT) || 6379
-const REDIS_HOST = process.env.NODE_ENV === 'production' ? process.env.REDIS_HOST : '127.0.0.1'
-const REDIS_PASSWORD = process.env.NODE_ENV === 'production' ? process.env.REDIS_PASSWORD : ''
+// const REDIS_HOST = process.env.NODE_ENV === 'production' ? process.env.REDIS_HOST : '127.0.0.1'
+// const REDIS_PASSWORD = process.env.NODE_ENV === 'production' ? process.env.REDIS_PASSWORD : ''
 
-export const redisClient = redis.createClient({ host: REDIS_HOST, port: REDIS_PORT, password: REDIS_PASSWORD })
+export const redisClient = redis.createClient({
+  host: process.env.REDIS_HOST,
+  port: REDIS_PORT,
+  password: process.env.REDIS_PASSWORD
+})
 
 export const accountsByRiotIdCache = (req: Request, res: Response, next: NextFunction) => {
   const { region, username, discriminator } = req.params
