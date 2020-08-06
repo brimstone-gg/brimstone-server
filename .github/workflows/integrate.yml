@@ -19,4 +19,4 @@ jobs:
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
       - run: npm ci
-      - run: npm test:prod
+      - run: npm run test:prod
