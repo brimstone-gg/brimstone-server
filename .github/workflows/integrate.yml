@@ -9,16 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-
-      - name: set node env
-        uses: allenevans/set-env@v1.0.0
-        with:
-          NODE_ENV: production
-
-      - name: setup node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
           node-version: 12
         env:
@@ -27,6 +19,5 @@ jobs:
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
-      - run: |
-          npm ci
-          npm run test:ci
+      - run: npm ci
+      - run: npm test
