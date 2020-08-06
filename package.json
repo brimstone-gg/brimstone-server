@@ -9,7 +9,7 @@
     "prestart": "build",
     "build": "tsc",
     "test": "jest --verbose --forceExit",
-    "test:prod": "set NODE_ENV=production && jest --verbose --forceExit",
+    "test:ci": "set NODE_ENV=production && jest --verbose --forceExit",
     "test:debug": "jest --verbose --runInBand --detectOpenHandles"
   },
   "repository": {
