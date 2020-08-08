@@ -13,11 +13,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - uses: supercharge/redis-github-action@1.1.0
+      - run: npm ci
+      - run: npm test
         env:
           PORT: ${{ secrets.PORT }}
           RIOT_DEV_API_KEY: ${{ secrets.RIOT_DEV_API_KEY }}
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
           REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
-      - run: npm ci
-      - run: npm test
