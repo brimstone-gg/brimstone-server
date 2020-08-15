@@ -1,7 +1,13 @@
 import request from 'supertest'
 import app from '../src/app'
 
+import { redisClient } from './../src/api/middlewares/cache'
+
 describe('GET /', () => {
+  afterAll(() => {
+    redisClient.quit()
+  })
+
   it('should return 200 OK', done => {
     request(app)
       .get('/')
