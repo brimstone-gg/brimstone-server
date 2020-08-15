@@ -8,7 +8,7 @@ const app: Application = express()
 
 app.use(cors())
 app.use(helmet())
-app.use(morgan('dev'))
+// app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
