@@ -1,0 +1,35 @@
+name: Brimstone Server CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Start Redis
+      uses: supercharge/redis-github-action@1.1.0
+      with:
+        redis-version: 6
+
+    - run: npm ci
+    - run: npm run build
+    - run: npm run test:build
+      env:
+        PORT: ${{ secrets.PORT }}
+        RIOT_DEV_API_KEY: ${{ secrets.RIOT_DEV_API_KEY }}
